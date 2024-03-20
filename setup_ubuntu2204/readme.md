@@ -1,7 +1,7 @@
 # Initial Server Setup on Ubuntu 18.04
 
-This playbook will execute a initial server setup for Ubuntu 18.04 systems, as explained in the guide on
-[Initial Server Setup Guide for Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-18-04).
+This playbook will execute a initial server setup for Ubuntu 22.04 systems, as explained in the guide on
+[Initial Server Setup Guide for Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-22-04).
 A number of containers will be created with the options specified in the `vars/default.yml` variable file.
 
 ## Settings
@@ -32,7 +32,7 @@ nano vars/default.yml
 ---
 create_user: sammy
 copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-sys_packages: [ 'curl', 'vim', 'git', 'ufw']
+sys_packages: [ 'curl', 'vim', 'git', 'net-tools']
 ```
 
 ### 3. Run the Playbook
@@ -41,4 +41,4 @@ sys_packages: [ 'curl', 'vim', 'git', 'ufw']
 ansible-playbook -l [target] -i [inventory file] -u [remote user] playbook.yml
 ```
 
-For more information on how to run this Ansible setup, please check this guide: [Initial Server Setup Guide for Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-18-04).
+For more information on how to run this Ansible setup, please check this guide: [Initial Server Setup Guide for Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-22-04).
